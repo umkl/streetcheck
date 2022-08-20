@@ -15,7 +15,12 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
   bool _isLoading = false;
   final TextEditingController _textFieldController = TextEditingController();
-  List<CheckTask> _checkTasks = <CheckTask>[CheckTask('test', false)];
+  List<CheckTask> _checkTasks = <CheckTask>[
+    CheckTask('ask someone where Tally Weijl is', false),
+    CheckTask(
+        'tie your shoe laces before someone without saying something', false),
+    CheckTask('scream while passing someone', false)
+  ];
 
   _saveCheckItems(List<CheckTask> list) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
