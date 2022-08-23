@@ -95,10 +95,31 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
                 );
               }).toList(),
             ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => _displayDialog(),
-        tooltip: 'Add Item',
-        child: Icon(Icons.add),
+      floatingActionButton: Stack(
+        children: [
+          Positioned(
+            bottom: 20,
+            left: 30,
+            child: FloatingActionButton(
+              onPressed: () {
+                setState(() {
+                  _checkTasks.clear();
+                });
+              },
+              tooltip: 'Clear tasks',
+              child: Icon(Icons.delete_forever),
+            ),
+          ),
+          Positioned(
+            bottom: 20,
+            right: 0,
+            child: FloatingActionButton(
+              onPressed: () => _displayDialog(),
+              tooltip: 'Add Item',
+              child: Icon(Icons.add),
+            ),
+          ),
+        ],
       ),
     );
   }
